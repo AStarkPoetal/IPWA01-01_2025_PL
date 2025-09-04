@@ -1,8 +1,123 @@
-body {
-  background-color: #eae5e5;
-  font-family: Arial, sans-serif;
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-h1 {
-  color: darkblue;
+body {
+  font-family: Arial, sans-serif;
+  line-height: 1.5;
+  color: #333;
+  background: #EAE5E5FF;
 }
+
+/* Fejléc */
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem;
+  background: #067272;
+  color: #fff;
+}
+
+header img {
+  display: block;
+}
+
+header nav ul {
+  list-style: none;
+  display: flex;
+  gap: 1rem;
+}
+
+/* Oldalsáv */
+main {
+  display: flex;
+  gap: 1rem;
+  padding: 1rem;
+}
+
+aside {
+  width: 200px;
+}
+
+aside nav ul {
+  list-style: none;
+}
+
+aside nav a {
+  display: block;
+  padding: 0.5rem;
+  text-decoration: none;
+  color: #004d40;
+}
+
+aside nav a:hover {
+  background: #e0f2f1;
+  border-radius: 4px;
+}
+
+/* Fő tartalom */
+section {
+  flex: 1;
+  background: #fff;
+  padding: 1rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  overflow-x: auto; /* táblázat görgethető mobilon */
+}
+
+/* Táblázat */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+}
+
+thead {
+  background: #067272;
+  color: #fff;
+}
+
+th, td {
+  border: 1px solid #ccc;
+  padding: 0.5rem;
+  text-align: left;
+}
+
+tbody tr:nth-child(even) {
+  background: #f1f1f1;
+}
+
+/* Lábléc */
+footer {
+  padding: 1rem;
+  background: #004d40;
+  color: #fff;
+  text-align: center;
+}
+
+footer a {
+  color: #fff;
+  text-decoration: none;
+  margin: 0 0.5rem;
+}
+
+footer a:hover {
+  text-decoration: underline;
+}
+
+/* Reszponzivitás */
+@media (max-width: 768px) {
+  main {
+    flex-direction: column;
+  }
+
+  aside {
+    width: 100%;
+    order: -1; /* oldalsáv felülre kerül */
+  }
+}
+
