@@ -114,10 +114,29 @@ footer a:hover {
   main {
     flex-direction: column;
   }
+  /* ======= Fókuszállapotok a billentyűzetes navigációhoz ======= */
+  a, button, input {
+    outline: none;
+  }
 
+  a:focus, button:focus, input:focus {
+    outline: 3px solid #80cbc4;
+    outline-offset: 2px;
+  }
   aside {
     width: 100%;
     order: -1; /* oldalsáv felülre kerül */
   }
+}
+header { position: sticky; top: 0; z-index: 100; }
+aside { position: sticky; top: 72px; }
+
+/* alap: bal oldali menü */
+main { display:flex; gap:1rem; }
+aside { order:1; width:200px; }
+section { order:2; flex:1; }
+th {
+  cursor: pointer;
+  user-select: none; /* ne jelölje ki kattintáskor a szöveget */
 }
 

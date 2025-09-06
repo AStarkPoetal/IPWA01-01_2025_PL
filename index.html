@@ -12,21 +12,22 @@
   <a href="/" class="logo-wrap">
     <img src="icon.png" alt="Logo" height="40">
   </a>
-  <nav>
-    <ul>
-      <li>
-        <form>
-          <input type="text" name="Suche" placeholder="Suche">
-        </form>
-      </li>
-    </ul>
-  </nav>
  </header>
  <main>
   <aside>
    <nav>
     <ul>
       <li><a href="#filter">Filter & Suche</a></li>
+        <ul>
+          <li>
+            <form>
+              <input type="text" name="Suche" placeholder="Unternehmen">
+              <input type="text" name="Suche" placeholder="Anlage">
+              <input type="text" name="Suche" placeholder="Land">
+              <input type="text" name="Suche" placeholder="tCO₂e">
+            </form>
+          </li>
+        </ul>
       <li><a href="#table">Tabelle</a></li>
     </ul>
    </nav>
@@ -35,10 +36,10 @@
      <table>
        <thead>
        <tr>
-         <th scope="col">Company</th>
-         <th scope="col">Installation</th>
-         <th scope="col">Country</th>
-         <th scope="col">Verified emissions 2024 (tCO₂e)</th>
+         <th scope="col">Unternehmen</th>
+         <th scope="col">Anlage</th>
+         <th scope="col">Land</th>
+         <th scope="col">tCO₂e_2024</th>
        </tr>
        </thead>
        <tbody>
