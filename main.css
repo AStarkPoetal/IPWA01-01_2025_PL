@@ -130,6 +130,24 @@ footer a:hover {
 }
 header { position: sticky; top: 0; z-index: 100; }
 aside { position: sticky; top: 72px; }
+.filter-panel {
+  margin-top: 1rem;
+  padding: .75rem;
+  background: #fff;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+}
+.filter-panel form label {
+  display:block;
+  font-weight:600;
+  margin-bottom:.25rem;
+}
+.filter-panel input {
+  width:100%;
+  padding:.5rem .75rem;
+  border:1px solid #cbd5e1;
+  border-radius:8px;
+}
 
 /* alap: bal oldali menü */
 main { display:flex; gap:1rem; }
