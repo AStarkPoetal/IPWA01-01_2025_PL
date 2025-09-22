@@ -1,7 +1,40 @@
 document.addEventListener("DOMContentLoaded", () => {
-  // --- elemek ---
-  const filterPanel = document.getElementById('filter');
-  const tableSection = document.getElementById('table');
+  const filterPanel = document.getElementById("filterPanel"); // új ID
+  const tableSection = document.getElementById("table");
+  const linkFilter = document.getElementById("link-filter");
+  const linkTable  = document.getElementById("link-table");
+
+  function toggle(panelEl, linkEl) {
+    const willShow = panelEl.hidden;
+    panelEl.hidden = !willShow;
+    linkEl.setAttribute("aria-expanded", String(willShow));
+    linkEl.classList.toggle("is-active", willShow);
+  }
+
+  linkFilter.addEventListener("click", (e) => {
+    e.preventDefault();
+    toggle(filterPanel, linkFilter);
+  });
+
+  linkTable.addEventListener("click", (e) => {
+    e.preventDefault();
+    toggle(tableSection, linkTable);
+  });
+
+
+  linkTable.addEventListener("click", (e) => {
+      e.preventDefault();
+      toggle(tableSection, linkTable);
+    });
+
+  // Tabelle – toggle
+  linkTable.addEventListener("click", (e) => {
+    e.preventDefault();
+    const isHidden = tableSection.hidden;
+    tableSection.hidden = !isHidden;
+    linkTable.setAttribute("aria-expanded", String(isHidden));
+    linkTable.classList.toggle("is-active", isHidden);
+  });
 
   // fontos: a HTML-ben ezek a name-ek legyenek:
   const companyInput     = document.querySelector('#filter input[name="company"]');
@@ -18,8 +51,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // --- nézetkapcsolás: csak #table esetén mutasd ---
   function updatePanels() {
+    const isFilter = location.hash === '#filter';
     const isTable = location.hash === '#table';
-    filterPanel.hidden = !isTable;
+
+    filterPanel.hidden = !isFilter;
     tableSection.hidden = !isTable;
   }
 

@@ -59,6 +59,11 @@ aside nav a:hover {
   border-radius: 4px;
 }
 
+aside a.is-active {
+  font-weight: 600;
+  text-decoration: underline;
+}
+
 /* Fő tartalom */
 section {
   flex: 1;

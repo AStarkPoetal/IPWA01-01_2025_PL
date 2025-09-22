@@ -14,39 +14,35 @@
   </a>
  </header>
  <main>
- <aside>
-     <nav>
+   <aside>
+     <!-- EZ MINDIG LÁTSZIK -->
+     <nav aria-label="Lokales Menü">
        <ul>
-         <li><a href="#filter">Filter & Suche</a></li>
-         <li>
-           <ul>
-             <li>
-               <form>
-                  <div id="filter" class="filter-panel" hidden>
-                 <input type="text" name="company" placeholder="Unternehmen suchen">
-                 <input type="text" name="installation" placeholder="Anlage suchen">
-                 <input type="text" name="country" placeholder="Land suchen">
-                 <input type="text" name="emissions" placeholder="tCO₂e suchen">
-                   </div>
-               </form>
-             </li>
-           </ul>
-         </li>
-         <li><a href="#table">Tabelle</a></li>
+         <li><a id="link-filter" href="#toggle-filter" aria-controls="filterPanel" aria-expanded="false">Filter & Suche</a></li>
+         <li><a id="link-table"  href="#toggle-table"  aria-controls="table"       aria-expanded="false">Tabelle</a></li>
        </ul>
      </nav>
-   </div>
- </aside>
- <section id="table" hidden>
-   <table>
-     <thead>
-     <tr>
+
+     <!-- EZ A LEGÖRDÜLŐ PANELED: KEZDETBEN REJTETT -->
+     <div id="filterPanel" class="filter-panel" hidden>
+       <form onsubmit="return false;">
+         <input type="text" name="company"      placeholder="Unternehmen suchen">
+         <input type="text" name="installation" placeholder="Anlage suchen">
+         <input type="text" name="country"      placeholder="Land suchen">
+         <input type="text" name="emissions"    placeholder="tCO₂e suchen">
+       </form>
+     </div>
+   </aside>
+     <section id="table" hidden>
+      <table>
+      <thead>
+      <tr>
        <th scope="col">Unternehmen</th>
        <th scope="col">Anlage</th>
        <th scope="col">Land</th>
        <th scope="col">tCO₂e_2024</th>
-     </tr>
-     </thead>
+      </tr>
+      </thead>
      <tbody>
      <tr>
        <td>EnergieUnternehmen 075 GmbH</td>
