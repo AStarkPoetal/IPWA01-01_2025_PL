@@ -21,6 +21,18 @@ header {
   background: #067272;
   color: #fff;
 }
+header {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start; /* balra igazítja */
+  gap: 1rem; /* kis távolság a logó és a szöveg között */
+}
+
+header .site-title {
+  font-size: 1.5rem;
+  color: #fff;
+  margin: 0;
+}
 
 header img {
   display: block;
@@ -63,6 +75,9 @@ aside a.is-active {
   font-weight: 600;
   text-decoration: underline;
 }
+th { cursor: pointer; user-select: none; }
+aside a.is-active { font-weight: 600; text-decoration: underline; }
+
 
 /* Fő tartalom */
 section {
@@ -95,6 +110,7 @@ th, td {
 tbody tr:nth-child(even) {
   background: #f1f1f1;
 }
+
 
 /* Lábléc */
 footer {

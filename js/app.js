@@ -1,8 +1,7 @@
 document.addEventListener("DOMContentLoaded", () => {
-  const filterPanel = document.getElementById("filterPanel"); // új ID
-  const tableSection = document.getElementById("table");
-  const linkFilter = document.getElementById("link-filter");
-  const linkTable  = document.getElementById("link-table");
+  // ---- Panelek és linkek (toggle) ----
+  const filterPanel   = document.getElementById("filterPanel"); // ← új ID
+  const linkFilter    = document.getElementById("link-filter");
 
   function toggle(panelEl, linkEl) {
     const willShow = panelEl.hidden;
@@ -11,120 +10,88 @@ document.addEventListener("DOMContentLoaded", () => {
     linkEl.classList.toggle("is-active", willShow);
   }
 
-  linkFilter.addEventListener("click", (e) => {
+  linkFilter?.addEventListener("click", (e) => {
     e.preventDefault();
     toggle(filterPanel, linkFilter);
   });
 
-  linkTable.addEventListener("click", (e) => {
-    e.preventDefault();
-    toggle(tableSection, linkTable);
-  });
+  // ---- Keresés (4 mező, együttes szűrés) ----
+  const companyInput      = document.querySelector('#filterPanel input[name="company"]');
+  const installationInput = document.querySelector('#filterPanel input[name="installation"]');
+  const countryInput      = document.querySelector('#filterPanel input[name="country"]');
+  const emissionsInput    = document.querySelector('#filterPanel input[name="emissions"]');
 
+  const table  = document.querySelector("table");
+  const tbody  = table?.querySelector("tbody");
+  const headers= table?.querySelectorAll("th");
 
-  linkTable.addEventListener("click", (e) => {
-      e.preventDefault();
-      toggle(tableSection, linkTable);
+  const clean = s => (s || "").replace(/[<>"']/g, "");
+
+  function filterRows() {
+    if (!tbody) return;
+    const qCompany = clean(companyInput?.value).trim().toLowerCase();
+    const qInst    = clean(installationInput?.value).trim().toLowerCase();
+    const qCountry = clean(countryInput?.value).trim().toLowerCase();
+    const qEmiss   = clean(emissionsInput?.value).trim().toLowerCase();
+
+    tbody.querySelectorAll("tr").forEach(row => {
+      const c = row.children;
+      const company   = c[0].textContent.toLowerCase();
+      const inst      = c[1].textContent.toLowerCase();
+      const country   = c[2].textContent.toLowerCase();
+      const emissions = c[3].textContent.toLowerCase();
+
+      const ok =
+        (!qCompany || company.includes(qCompany)) &&
+        (!qInst    || inst.includes(qInst)) &&
+        (!qCountry || country.includes(qCountry)) &&
+        (!qEmiss   || emissions.includes(qEmiss));
+
+      row.style.display = ok ? "" : "none";
     });
+  }
 
-  // Tabelle – toggle
-  linkTable.addEventListener("click", (e) => {
-    e.preventDefault();
-    const isHidden = tableSection.hidden;
-    tableSection.hidden = !isHidden;
-    linkTable.setAttribute("aria-expanded", String(isHidden));
-    linkTable.classList.toggle("is-active", isHidden);
+  [companyInput, installationInput, countryInput, emissionsInput].forEach(inp => {
+    inp?.addEventListener("input", filterRows);
   });
 
-  // fontos: a HTML-ben ezek a name-ek legyenek:
-  const companyInput     = document.querySelector('#filter input[name="company"]');
-  const installationInput= document.querySelector('#filter input[name="installation"]');
-  const countryInput     = document.querySelector('#filter input[name="country"]');
-  const emissionsInput   = document.querySelector('#filter input[name="emissions"]');
-
-  const table = document.querySelector("table");
-  const tbody = table.querySelector("tbody");
-  const headers = table.querySelectorAll("th");
-
+  // ---- Rendezés nyilakkal ----
   let sortColumnIndex = null;
   let sortAsc = true;
 
-  // --- nézetkapcsolás: csak #table esetén mutasd ---
-  function updatePanels() {
-    const isFilter = location.hash === '#filter';
-    const isTable = location.hash === '#table';
+  function attachSorting() {
+    if (!headers || !tbody) return;
+    headers.forEach((header, index) => {
+      header.style.cursor = "pointer";
+      header.addEventListener("click", () => {
+        const rows = Array.from(tbody.querySelectorAll("tr"))
+          .filter(r => r.style.display !== "none");
 
-    filterPanel.hidden = !isFilter;
-    tableSection.hidden = !isTable;
-  }
+        if (sortColumnIndex === index) {
+          sortAsc = !sortAsc;
+        } else {
+          sortAsc = true;
+          sortColumnIndex = index;
+        }
 
-// alapállapot: ha nincs hash, állítsd be, majd AZONNAL frissíts
-  if (!location.hash) {
-    location.hash = '#table';
-  }
-  updatePanels(); // <<< EZ HIÁNYZOTT
+        rows.sort((a, b) => {
+          const aText = a.children[index].textContent.trim();
+          const bText = b.children[index].textContent.trim();
+          const aVal = isNaN(aText) ? aText.toLowerCase() : parseFloat(aText);
+          const bVal = isNaN(bText) ? bText.toLowerCase() : parseFloat(bText);
+          if (aVal < bVal) return sortAsc ? -1 : 1;
+          if (aVal > bVal) return sortAsc ?  1 : -1;
+          return 0;
+        });
 
-  window.addEventListener('hashchange', updatePanels);
+        rows.forEach(r => tbody.appendChild(r));
 
-  // --- kis sanitizáló (XSS ellen) ---
-  const clean = s => s.replace(/[<>"']/g, "");
-
-  // --- SZŰRÉS: mind a 4 mezőre egyszerre (részsztring alapú) ---
-  function filterRows() {
-    const qCompany   = clean(companyInput?.value || "").trim().toLowerCase();
-    const qInst      = clean(installationInput?.value || "").trim().toLowerCase();
-    const qCountry   = clean(countryInput?.value || "").trim().toLowerCase();
-    const qEmiss     = clean(emissionsInput?.value || "").trim().toLowerCase();
-
-    tbody.querySelectorAll("tr").forEach(row => {
-      const cells = row.children;
-      const company   = cells[0].textContent.toLowerCase();
-      const inst      = cells[1].textContent.toLowerCase();
-      const country   = cells[2].textContent.toLowerCase();
-      const emissions = cells[3].textContent.toLowerCase();
-
-      const okCompany = !qCompany || company.includes(qCompany);
-      const okInst    = !qInst    || inst.includes(qInst);
-      const okCountry = !qCountry || country.includes(qCountry);
-      const okEmiss   = !qEmiss   || emissions.includes(qEmiss); // egyszerű részsztring
-
-      row.style.display = (okCompany && okInst && okCountry && okEmiss) ? "" : "none";
-    });
-  }
-
-  // események a mezőkhöz
-  [companyInput, installationInput, countryInput, emissionsInput]
-    .forEach(inp => inp && inp.addEventListener("input", filterRows));
-
-  // --- RENDEZÉS nyilakkal ---
-  headers.forEach((header, index) => {
-    header.style.cursor = "pointer";
-    header.addEventListener("click", () => {
-      const rows = Array.from(tbody.querySelectorAll("tr"))
-        .filter(r => r.style.display !== "none"); // csak a látható sorok
-
-      if (sortColumnIndex === index) {
-        sortAsc = !sortAsc;
-      } else {
-        sortAsc = true;
-        sortColumnIndex = index;
-      }
-
-      rows.sort((a, b) => {
-        const aText = a.children[index].textContent.trim();
-        const bText = b.children[index].textContent.trim();
-        const aVal = isNaN(aText) ? aText.toLowerCase() : parseFloat(aText);
-        const bVal = isNaN(bText) ? bText.toLowerCase() : parseFloat(bText);
-        if (aVal < bVal) return sortAsc ? -1 : 1;
-        if (aVal > bVal) return sortAsc ?  1 : -1;
-        return 0;
+        // nyíl frissítése (előbb töröljük a régit)
+        headers.forEach(h => h.textContent = h.textContent.replace(/ ▲| ▼/g, ""));
+        header.textContent += sortAsc ? " ▲" : " ▼";
       });
-
-      rows.forEach(r => tbody.appendChild(r));
-
-      // nyilak frissítése
-      headers.forEach(h => h.textContent = h.textContent.replace(/ ▲| ▼/g, ""));
-      header.textContent += sortAsc ? " ▲" : " ▼";
     });
-  });
+  }
+
+  attachSorting();
 });
