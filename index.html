@@ -12,11 +12,16 @@
   <a href="/" class="logo-wrap">
     <img src="icon.png" alt="Logo" height="40">
   </a>
-  <h1 class="site-title">CO₂-Footprint Deutschland</h1>
+  <h1 class="site-title">CO₂-Footprint</h1>
+  <form class="header-search" onsubmit="return false;">
+    <input type="text" id="header-company" placeholder="Unternehmen suchen">
+  </form>
 </header>
+
+
  <main>
    <aside>
-     <!-- EZ MINDIG LÁTSZIK -->
+     <!--DAS IST IMMER SICHTBAR-->
      <nav aria-label="Lokales Menü">
        <ul>
          <li><a id="link-filter" href="#toggle-filter" aria-controls="filterPanel" aria-expanded="false">Filter & Suche</a></li>
@@ -24,7 +29,7 @@
        </ul>
      </nav>
 
-     <!-- EZ A LEGÖRDÜLŐ PANELED: KEZDETBEN REJTETT -->
+     <!--DIES IST EIN ROLLENDE PANEL: ZU BEGINN VERSTECKT-->
      <div id="filterPanel" class="filter-panel" hidden>
        <form onsubmit="return false;">
          <input type="text" name="company"      placeholder="Unternehmen suchen">
@@ -34,6 +39,7 @@
        </form>
      </div>
    </aside>
+   <!--DIE TABELLE-->
      <section id="table">
       <table>
       <thead>
@@ -649,7 +655,7 @@
    </table>
    </section>
  </main>
-   <!-- Add your site or application content here -->
+   <!--FOOTER MIT DEN LINKS-->
   <footer>
    <nav>
      <ul>

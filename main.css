@@ -1,18 +1,15 @@
-/* Reset */
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
-
 body {
   font-family: Arial, sans-serif;
   line-height: 1.5;
   color: #333;
   background: #EAE5E5FF;
 }
-
-/* Fejléc */
 header {
   display: flex;
   align-items: center;
@@ -24,10 +21,9 @@ header {
 header {
   display: flex;
   align-items: center;
-  justify-content: flex-start; /* balra igazítja */
-  gap: 1rem; /* kis távolság a logó és a szöveg között */
+  justify-content: flex-start; /* LINKS AUSRICHTEN */
+  gap: 1rem; /* KLEINER ABSTAND ZWISCHEN LOGO UND TEXT */
 }
-
 header .site-title {
   font-size: 1.5rem;
   color: #fff;
@@ -43,8 +39,30 @@ header nav ul {
   display: flex;
   gap: 1rem;
 }
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* LOGO UND TITEL LINKS, SUCHFELD RECHTS */
+  gap: 1rem;
+}
 
-/* Oldalsáv */
+header .site-title {
+  font-size: 1.5rem;
+  color: #fff;
+  margin: 0;
+  font-weight: bold;
+}
+
+header .header-search {
+  margin-left: auto; /* SUCHFELD RECHTS (!!) */
+}
+
+header .header-search input {
+  padding: 0.3rem 0.5rem;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+}
+/*ASIDE*/
 main {
   display: flex;
   gap: 1rem;
@@ -79,17 +97,17 @@ th { cursor: pointer; user-select: none; }
 aside a.is-active { font-weight: 600; text-decoration: underline; }
 
 
-/* Fő tartalom */
+/* MAIN */
 section {
   flex: 1;
   background: #fff;
   padding: 1rem;
   border-radius: 8px;
   box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-  overflow-x: auto; /* táblázat görgethető mobilon */
+  overflow-x: auto; /* TABELLE AUF HANDY SCROLLBAR */
 }
 
-/* Táblázat */
+/* TABELLE */
 table {
   width: 100%;
   border-collapse: collapse;
@@ -112,7 +130,7 @@ tbody tr:nth-child(even) {
 }
 
 
-/* Lábléc */
+/* FOOTER */
 footer {
   padding: 1rem;
   background: #004d40;
@@ -130,12 +148,12 @@ footer a:hover {
   text-decoration: underline;
 }
 
-/* Reszponzivitás */
+/* RESPONSIVITÄT */
 @media (max-width: 768px) {
   main {
     flex-direction: column;
   }
-  /* ======= Fókuszállapotok a billentyűzetes navigációhoz ======= */
+  /* FOKUSZUSTÄNDE FÜR DIE TASTATURNAVIGATION */
   a, button, input {
     outline: none;
   }
@@ -146,7 +164,7 @@ footer a:hover {
   }
   aside {
     width: 100%;
-    order: -1; /* oldalsáv felülre kerül */
+    order: -1; /* ASIDE WIRD NACH OBEN VERSCHOBEN */
   }
 }
 header { position: sticky; top: 0; z-index: 100; }
@@ -170,12 +188,12 @@ aside { position: sticky; top: 72px; }
   border-radius:8px;
 }
 
-/* alap: bal oldali menü */
+/* MENÜ AUF DER LINKEN SEITE */
 main { display:flex; gap:1rem; }
 aside { order:1; width:200px; }
 section { order:2; flex:1; }
 th {
   cursor: pointer;
-  user-select: none; /* ne jelölje ki kattintáskor a szöveget */
+  user-select: none; /* MARKIEREN SIE DEN TEXT BEIM KLICKEN NICHT */
 }
 
