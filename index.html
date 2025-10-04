@@ -1,0 +1,669 @@
+<!doctype html>
+<html class="no-js" lang="de">
+
+<head>
+  <meta charset="UTF-8">
+  <title>CO2-Footprint</title>
+  <link rel="stylesheet" href="main.css">
+</head>
+
+<body>
+<header>
+  <a href="/" class="logo-wrap">
+    <img src="icon.png" alt="Logo" height="40">
+  </a>
+  <h1 class="site-title">CO₂-Footprint</h1>
+  <form class="header-search" onsubmit="return false;">
+    <input type="text" id="header-company" placeholder="Unternehmen suchen">
+  </form>
+</header>
+
+
+ <main>
+   <aside>
+     <!--DAS IST IMMER SICHTBAR-->
+     <nav aria-label="Lokales Menü">
+       <ul>
+         <li><a id="link-filter" href="#toggle-filter" aria-controls="filterPanel" aria-expanded="false">Filter & Suche</a></li>
+         <li><a id="link-table"  href="#toggle-table"  aria-controls="table"       aria-expanded="false">Tabelle</a></li>
+       </ul>
+     </nav>
+
+     <!--DIES IST EIN ROLLENDE PANEL: ZU BEGINN VERSTECKT-->
+     <div id="filterPanel" class="filter-panel" hidden>
+       <form onsubmit="return false;">
+         <input type="text" name="company"      placeholder="Unternehmen suchen">
+         <input type="text" name="installation" placeholder="Anlage suchen">
+         <input type="text" name="country"      placeholder="Land suchen">
+         <input type="text" name="emissions"    placeholder="tCO₂e suchen">
+       </form>
+     </div>
+   </aside>
+   <!--DIE TABELLE-->
+     <section id="table">
+      <table>
+      <thead>
+      <tr>
+       <th scope="col">Unternehmen</th>
+       <th scope="col">Anlage</th>
+       <th scope="col">Land</th>
+       <th scope="col">tCO₂e_2024</th>
+      </tr>
+      </thead>
+     <tbody>
+     <tr>
+       <td>EnergieUnternehmen 075 GmbH</td>
+       <td>Kraftwerk 075</td>
+       <td>DE</td>
+       <td>22696080</td>
+     </tr>
+     <tr>
+       <td>EnergieUnternehmen 001 GmbH</td>
+       <td>Kraftwerk 001</td>
+       <td>DE</td>
+       <td>22628711</td>
+     </tr>
+     <tr>
+       <td>EnergieUnternehmen 055 GmbH</td>
+       <td>Kraftwerk 055</td>
+       <td>DE</td>
+       <td>20529012</td>
+     </tr>
+     <tr>
+       <td>EnergieUnternehmen 072 GmbH</td>
+       <td>Kraftwerk 072</td>
+       <td>DE</td>
+       <td>19997648</td>
+     </tr>
+     <tr>
+       <td>EnergieUnternehmen 096 GmbH</td>
+       <td>Kraftwerk 096</td>
+       <td>DE</td>
+       <td>19759304</td>
+     </tr>
+     <tr>
+       <td>EnergieUnternehmen 090 GmbH</td>
+       <td>Kraftwerk 090</td>
+       <td>DE</td>
+       <td>19320224</td>
+     </tr>
+     <tr>
+       <td>EnergieUnternehmen 038 GmbH</td>
+       <td>Kraftwerk 038</td>
+       <td>DE</td>
+       <td>18014865</td>
+     </tr>
+     <tr>
+       <td>StahlUnternehmen 017 GmbH</td>
+       <td>Stahlwerk 017</td>
+       <td>DE</td>
+       <td>15075705</td>
+     </tr>
+     <tr>
+       <td>StahlUnternehmen 082 GmbH</td>
+       <td>Stahlwerk 082</td>
+       <td>DE</td>
+       <td>14219082</td>
+     </tr>
+     <tr>
+       <td>StahlUnternehmen 020 GmbH</td>
+       <td>Stahlwerk 020</td>
+       <td>DE</td>
+       <td>13755637</td>
+     </tr>
+     <tr>
+       <td>StahlUnternehmen 081 GmbH</td>
+       <td>Stahlwerk 081</td>
+       <td>DE</td>
+       <td>12852663</td>
+     </tr>
+     <tr>
+       <td>StahlUnternehmen 041 GmbH</td>
+       <td>Stahlwerk 041</td>
+       <td>DE</td>
+       <td>12512182</td>
+     </tr>
+     <tr>
+       <td>StahlUnternehmen 036 GmbH</td>
+       <td>Stahlwerk 036</td>
+       <td>DE</td>
+       <td>12393823</td>
+     </tr>
+     <tr>
+       <td>ChemieUnternehmen 016 GmbH</td>
+       <td>Chemiewerk 016</td>
+       <td>DE</td>
+       <td>10951172</td>
+     </tr>
+     <tr>
+       <td>StahlUnternehmen 073 GmbH</td>
+       <td>Stahlwerk 073</td>
+       <td>DE</td>
+       <td>9148109</td>
+     </tr>
+     <tr>
+       <td>StahlUnternehmen 003 GmbH</td>
+       <td>Stahlwerk 003</td>
+       <td>DE</td>
+       <td>8825346</td>
+     </tr>
+     <tr>
+       <td>ChemieUnternehmen 030 GmbH</td>
+       <td>Chemiewerk 030</td>
+       <td>DE</td>
+       <td>7958683</td>
+     </tr>
+     <tr>
+       <td>ChemieUnternehmen 069 GmbH</td>
+       <td>Chemiewerk 069</td>
+       <td>DE</td>
+       <td>7080049</td>
+     </tr>
+     <tr>
+       <td>RaffinerieUnternehmen 049 GmbH</td>
+       <td>Raffinerie 049</td>
+       <td>DE</td>
+       <td>6608354</td>
+     </tr>
+     <tr>
+       <td>RaffinerieUnternehmen 043 GmbH</td>
+       <td>Raffinerie 043</td>
+       <td>DE</td>
+       <td>6456992</td>
+     </tr>
+     <tr>
+       <td>RaffinerieUnternehmen 044 GmbH</td>
+       <td>Raffinerie 044</td>
+       <td>DE</td>
+       <td>6450664</td>
+     </tr>
+     <tr>
+       <td>RaffinerieUnternehmen 011 GmbH</td>
+       <td>Raffinerie 011</td>
+       <td>DE</td>
+       <td>5720062</td>
+     </tr>
+     <tr>
+       <td>ChemieUnternehmen 060 GmbH</td>
+       <td>Chemiewerk 060</td>
+       <td>DE</td>
+       <td>5585264</td>
+     </tr>
+     <tr>
+       <td>RaffinerieUnternehmen 074 GmbH</td>
+       <td>Raffinerie 074</td>
+       <td>DE</td>
+       <td>5554386</td>
+     </tr>
+     <tr>
+       <td>RaffinerieUnternehmen 009 GmbH</td>
+       <td>Raffinerie 009</td>
+       <td>DE</td>
+       <td>5080285</td>
+     </tr>
+     <tr>
+       <td>ZementUnternehmen 014 GmbH</td>
+       <td>Zementwerk 014</td>
+       <td>DE</td>
+       <td>4970418</td>
+     </tr>
+     <tr>
+       <td>RaffinerieUnternehmen 045 GmbH</td>
+       <td>Raffinerie 045</td>
+       <td>DE</td>
+       <td>4922042</td>
+     </tr>
+     <tr>
+       <td>ZementUnternehmen 079 GmbH</td>
+       <td>Zementwerk 079</td>
+       <td>DE</td>
+       <td>4894370</td>
+     </tr>
+     <tr>
+       <td>RaffinerieUnternehmen 099 GmbH</td>
+       <td>Raffinerie 099</td>
+       <td>DE</td>
+       <td>4786663</td>
+     </tr>
+     <tr>
+       <td>RaffinerieUnternehmen 035 GmbH</td>
+       <td>Raffinerie 035</td>
+       <td>DE</td>
+       <td>4728000</td>
+     </tr>
+     <tr>
+       <td>ZementUnternehmen 027 GmbH</td>
+       <td>Zementwerk 027</td>
+       <td>DE</td>
+       <td>4695511</td>
+     </tr>
+     <tr>
+       <td>ZementUnternehmen 065 GmbH</td>
+       <td>Zementwerk 065</td>
+       <td>DE</td>
+       <td>4514954</td>
+     </tr>
+     <tr>
+       <td>ZementUnternehmen 077 GmbH</td>
+       <td>Zementwerk 077</td>
+       <td>DE</td>
+       <td>3870679</td>
+     </tr>
+     <tr>
+       <td>PapierUnternehmen 026 GmbH</td>
+       <td>Papierfabrik 026</td>
+       <td>DE</td>
+       <td>3688934</td>
+     </tr>
+     <tr>
+       <td>ZementUnternehmen 088 GmbH</td>
+       <td>Zementwerk 088</td>
+       <td>DE</td>
+       <td>3629891</td>
+     </tr>
+     <tr>
+       <td>MetallUnternehmen 031 GmbH</td>
+       <td>Metallwerk 031</td>
+       <td>DE</td>
+       <td>3542591</td>
+     </tr>
+     <tr>
+       <td>PapierUnternehmen 040 GmbH</td>
+       <td>Papierfabrik 040</td>
+       <td>DE</td>
+       <td>3508874</td>
+     </tr>
+     <tr>
+       <td>ZementUnternehmen 034 GmbH</td>
+       <td>Zementwerk 034</td>
+       <td>DE</td>
+       <td>3158229</td>
+     </tr>
+     <tr>
+       <td>MetallUnternehmen 028 GmbH</td>
+       <td>Metallwerk 028</td>
+       <td>DE</td>
+       <td>3098616</td>
+     </tr>
+     <tr>
+       <td>MetallUnternehmen 019 GmbH</td>
+       <td>Metallwerk 019</td>
+       <td>DE</td>
+       <td>3086792</td>
+     </tr>
+     <tr>
+       <td>MetallUnternehmen 029 GmbH</td>
+       <td>Metallwerk 029</td>
+       <td>DE</td>
+       <td>2974935</td>
+     </tr>
+     <tr>
+       <td>MetallUnternehmen 083 GmbH</td>
+       <td>Metallwerk 083</td>
+       <td>DE</td>
+       <td>2874813</td>
+     </tr>
+     <tr>
+       <td>MetallUnternehmen 013 GmbH</td>
+       <td>Metallwerk 013</td>
+       <td>DE</td>
+       <td>2812807</td>
+     </tr>
+     <tr>
+       <td>KalkUnternehmen 089 GmbH</td>
+       <td>Kalkwerk 089</td>
+       <td>DE</td>
+       <td>2787561</td>
+     </tr>
+     <tr>
+       <td>ZementUnternehmen 050 GmbH</td>
+       <td>Zementwerk 050</td>
+       <td>DE</td>
+       <td>2765407</td>
+     </tr>
+     <tr>
+       <td>MetallUnternehmen 057 GmbH</td>
+       <td>Metallwerk 057</td>
+       <td>DE</td>
+       <td>2678436</td>
+     </tr>
+     <tr>
+       <td>PapierUnternehmen 064 GmbH</td>
+       <td>Papierfabrik 064</td>
+       <td>DE</td>
+       <td>2635454</td>
+     </tr>
+     <tr>
+       <td>PapierUnternehmen 066 GmbH</td>
+       <td>Papierfabrik 066</td>
+       <td>DE</td>
+       <td>2625661</td>
+     </tr>
+     <tr>
+       <td>ZementUnternehmen 046 GmbH</td>
+       <td>Zementwerk 046</td>
+       <td>DE</td>
+       <td>2584179</td>
+     </tr>
+     <tr>
+       <td>KalkUnternehmen 080 GmbH</td>
+       <td>Kalkwerk 080</td>
+       <td>DE</td>
+       <td>2521560</td>
+     </tr>
+     <tr>
+       <td>ZementUnternehmen 063 GmbH</td>
+       <td>Zementwerk 063</td>
+       <td>DE</td>
+       <td>2381046</td>
+     </tr>
+     <tr>
+       <td>PapierUnternehmen 078 GmbH</td>
+       <td>Papierfabrik 078</td>
+       <td>DE</td>
+       <td>2354439</td>
+     </tr>
+     <tr>
+       <td>KalkUnternehmen 061 GmbH</td>
+       <td>Kalkwerk 061</td>
+       <td>DE</td>
+       <td>2323257</td>
+     </tr>
+     <tr>
+       <td>MetallUnternehmen 022 GmbH</td>
+       <td>Metallwerk 022</td>
+       <td>DE</td>
+       <td>2213001</td>
+     </tr>
+     <tr>
+       <td>ZementUnternehmen 070 GmbH</td>
+       <td>Zementwerk 070</td>
+       <td>DE</td>
+       <td>2183626</td>
+     </tr>
+     <tr>
+       <td>PapierUnternehmen 006 GmbH</td>
+       <td>Papierfabrik 006</td>
+       <td>DE</td>
+       <td>2024221</td>
+     </tr>
+     <tr>
+       <td>PapierUnternehmen 025 GmbH</td>
+       <td>Papierfabrik 025</td>
+       <td>DE</td>
+       <td>2010241</td>
+     </tr>
+     <tr>
+       <td>GlasUnternehmen 012 GmbH</td>
+       <td>Glaswerk 012</td>
+       <td>DE</td>
+       <td>1903943</td>
+     </tr>
+     <tr>
+       <td>GlasUnternehmen 086 GmbH</td>
+       <td>Glaswerk 086</td>
+       <td>DE</td>
+       <td>1781239</td>
+     </tr>
+     <tr>
+       <td>MetallUnternehmen 052 GmbH</td>
+       <td>Metallwerk 052</td>
+       <td>DE</td>
+       <td>1780801</td>
+     </tr>
+     <tr>
+       <td>MetallUnternehmen 087 GmbH</td>
+       <td>Metallwerk 087</td>
+       <td>DE</td>
+       <td>1777216</td>
+     </tr>
+     <tr>
+       <td>PapierUnternehmen 021 GmbH</td>
+       <td>Papierfabrik 021</td>
+       <td>DE</td>
+       <td>1696125</td>
+     </tr>
+     <tr>
+       <td>MetallUnternehmen 095 GmbH</td>
+       <td>Metallwerk 095</td>
+       <td>DE</td>
+       <td>1653905</td>
+     </tr>
+     <tr>
+       <td>PapierUnternehmen 047 GmbH</td>
+       <td>Papierfabrik 047</td>
+       <td>DE</td>
+       <td>1600594</td>
+     </tr>
+     <tr>
+       <td>GlasUnternehmen 098 GmbH</td>
+       <td>Glaswerk 098</td>
+       <td>DE</td>
+       <td>1581547</td>
+     </tr>
+     <tr>
+       <td>GlasUnternehmen 093 GmbH</td>
+       <td>Glaswerk 093</td>
+       <td>DE</td>
+       <td>1519328</td>
+     </tr>
+     <tr>
+       <td>KalkUnternehmen 059 GmbH</td>
+       <td>Kalkwerk 059</td>
+       <td>DE</td>
+       <td>1513814</td>
+     </tr>
+     <tr>
+       <td>MetallUnternehmen 010 GmbH</td>
+       <td>Metallwerk 010</td>
+       <td>DE</td>
+       <td>1497235</td>
+     </tr>
+     <tr>
+       <td>GlasUnternehmen 005 GmbH</td>
+       <td>Glaswerk 005</td>
+       <td>DE</td>
+       <td>1483792</td>
+     </tr>
+     <tr>
+       <td>BioFuelUnternehmen 048 GmbH</td>
+       <td>Biokraftstoffanlage 048</td>
+       <td>DE</td>
+       <td>1445259</td>
+     </tr>
+     <tr>
+       <td>BioFuelUnternehmen 004 GmbH</td>
+       <td>Biokraftstoffanlage 004</td>
+       <td>DE</td>
+       <td>1432931</td>
+     </tr>
+     <tr>
+       <td>BioFuelUnternehmen 007 GmbH</td>
+       <td>Biokraftstoffanlage 007</td>
+       <td>DE</td>
+       <td>1389775</td>
+     </tr>
+     <tr>
+       <td>GlasUnternehmen 039 GmbH</td>
+       <td>Glaswerk 039</td>
+       <td>DE</td>
+       <td>1337818</td>
+     </tr>
+     <tr>
+       <td>MetallUnternehmen 002 GmbH</td>
+       <td>Metallwerk 002</td>
+       <td>DE</td>
+       <td>1208279</td>
+     </tr>
+     <tr>
+       <td>PapierUnternehmen 100 GmbH</td>
+       <td>Papierfabrik 100</td>
+       <td>DE</td>
+       <td>1205325</td>
+     </tr>
+     <tr>
+       <td>KalkUnternehmen 037 GmbH</td>
+       <td>Kalkwerk 037</td>
+       <td>DE</td>
+       <td>1202944</td>
+     </tr>
+     <tr>
+       <td>BioFuelUnternehmen 076 GmbH</td>
+       <td>Biokraftstoffanlage 076</td>
+       <td>DE</td>
+       <td>1201902</td>
+     </tr>
+     <tr>
+       <td>KalkUnternehmen 053 GmbH</td>
+       <td>Kalkwerk 053</td>
+       <td>DE</td>
+       <td>1150049</td>
+     </tr>
+     <tr>
+       <td>BioFuelUnternehmen 023 GmbH</td>
+       <td>Biokraftstoffanlage 023</td>
+       <td>DE</td>
+       <td>1011716</td>
+     </tr>
+     <tr>
+       <td>MetallUnternehmen 068 GmbH</td>
+       <td>Metallwerk 068</td>
+       <td>DE</td>
+       <td>1009916</td>
+     </tr>
+     <tr>
+       <td>SpezialChemieUnternehmen 056 GmbH</td>
+       <td>Spezialchemieanlage 056</td>
+       <td>DE</td>
+       <td>884861</td>
+     </tr>
+     <tr>
+       <td>BioFuelUnternehmen 015 GmbH</td>
+       <td>Biokraftstoffanlage 015</td>
+       <td>DE</td>
+       <td>829066</td>
+     </tr>
+     <tr>
+       <td>SpezialChemieUnternehmen 091 GmbH</td>
+       <td>Spezialchemieanlage 091</td>
+       <td>DE</td>
+       <td>828796</td>
+     </tr>
+     <tr>
+       <td>GlasUnternehmen 042 GmbH</td>
+       <td>Glaswerk 042</td>
+       <td>DE</td>
+       <td>803397</td>
+     </tr>
+     <tr>
+       <td>SpezialChemieUnternehmen 062 GmbH</td>
+       <td>Spezialchemieanlage 062</td>
+       <td>DE</td>
+       <td>802881</td>
+     </tr>
+     <tr>
+       <td>BioFuelUnternehmen 018 GmbH</td>
+       <td>Biokraftstoffanlage 018</td>
+       <td>DE</td>
+       <td>780241</td>
+     </tr>
+     <tr>
+       <td>BioFuelUnternehmen 085 GmbH</td>
+       <td>Biokraftstoffanlage 085</td>
+       <td>DE</td>
+       <td>777621</td>
+     </tr>
+     <tr>
+       <td>GlasUnternehmen 097 GmbH</td>
+       <td>Glaswerk 097</td>
+       <td>DE</td>
+       <td>756131</td>
+     </tr>
+     <tr>
+       <td>BioFuelUnternehmen 032 GmbH</td>
+       <td>Biokraftstoffanlage 032</td>
+       <td>DE</td>
+       <td>712968</td>
+     </tr>
+     <tr>
+       <td>GlasUnternehmen 094 GmbH</td>
+       <td>Glaswerk 094</td>
+       <td>DE</td>
+       <td>698678</td>
+     </tr>
+     <tr>
+       <td>SpezialChemieUnternehmen 024 GmbH</td>
+       <td>Spezialchemieanlage 024</td>
+       <td>DE</td>
+       <td>628079</td>
+     </tr>
+     <tr>
+       <td>BioFuelUnternehmen 067 GmbH</td>
+       <td>Biokraftstoffanlage 067</td>
+       <td>DE</td>
+       <td>584954</td>
+     </tr>
+     <tr>
+       <td>SpezialChemieUnternehmen 058 GmbH</td>
+       <td>Spezialchemieanlage 058</td>
+       <td>DE</td>
+       <td>558460</td>
+     </tr>
+     <tr>
+       <td>SpezialChemieUnternehmen 071 GmbH</td>
+       <td>Spezialchemieanlage 071</td>
+       <td>DE</td>
+       <td>540972</td>
+     </tr>
+     <tr>
+       <td>SpezialChemieUnternehmen 051 GmbH</td>
+       <td>Spezialchemieanlage 051</td>
+       <td>DE</td>
+       <td>512235</td>
+     </tr>
+     <tr>
+       <td>SpezialChemieUnternehmen 008 GmbH</td>
+       <td>Spezialchemieanlage 008</td>
+       <td>DE</td>
+       <td>505619</td>
+     </tr>
+     <tr>
+       <td>SpezialChemieUnternehmen 084 GmbH</td>
+       <td>Spezialchemieanlage 084</td>
+       <td>DE</td>
+       <td>438029</td>
+     </tr>
+     <tr>
+       <td>BioFuelUnternehmen 033 GmbH</td>
+       <td>Biokraftstoffanlage 033</td>
+       <td>DE</td>
+       <td>358666</td>
+     </tr>
+     <tr>
+       <td>SpezialChemieUnternehmen 092 GmbH</td>
+       <td>Spezialchemieanlage 092</td>
+       <td>DE</td>
+       <td>307755</td>
+     </tr>
+     <tr>
+       <td>SpezialChemieUnternehmen 054 GmbH</td>
+       <td>Spezialchemieanlage 054</td>
+       <td>DE</td>
+       <td>296729</td>
+     </tr>
+     </tbody>
+   </table>
+   </section>
+ </main>
+   <!--FOOTER MIT DEN LINKS-->
+  <footer>
+   <nav>
+     <ul>
+       <a href="./Datenschutz.html">Datenschutz</a>
+       <a href="./Impressum.html">Impressum</a>
+     </ul>
+   </nav>
+  </footer>
+ <script src="js/app.js"></script>
+</body>
+</html>
